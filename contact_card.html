@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Card</title>
+<style>
+  body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Noto Sans',Arial;display:flex;align-items:center;justify-content:center;
+    min-height:100vh;margin:0;background:#f6f7fb;color:#111}
+  .card{width:360px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,0.08);overflow:hidden;text-align:center;padding-bottom:20px}
+  .hero{height:220px;background:linear-gradient(135deg,#6b8cff,#8fd3ff);display:flex;align-items:center;justify-content:center}
+  .hero img{width:160px;height:160px;border-radius:50%;border:6px solid rgba(255,255,255,0.9);object-fit:cover;background:#fff}
+  h1{font-size:20px;margin:14px 0 6px;line-height:1;color:#0f172a}
+  p.sub{margin:0;color:#475569;font-size:13px}
+  .links{display:flex;gap:12px;justify-content:center;margin-top:14px;padding:0 16px}
+  .links a{flex:1;text-decoration:none;padding:10px 12px;border-radius:10px;border:1px solid #e6eefb;background:#f8fbff;font-weight:600;display:inline-block}
+  .links a.wh{background:#25D366;color:white;border:none}
+  .links a.fb{background:#1877F2;color:white;border:none}
+  .note{font-size:12px;color:#64748b;margin-top:12px;padding:0 20px}
+  @media (max-width:420px){.card{width:92vw}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hero">
+    <!-- Replace the SVG below with your own image: put a URL or a data:image/... base64 string in the src -->
+    <img id="profilePic" src="https://i.postimg.cc/zXcpntDK/IMG-20250816-090008880-HDR-PORTRAIT.jpg" alt="Profile">
+  </div>
+  <h1 id="name">Saikat Kirtania</h1>
+  <p class="sub" id="subtitle">👨‍🔧 Engineering Student | EEE</p>
+
+  <div class="links">
+    <!-- Replace "your.username" and "88017XXXXXXXX" with your real info -->
+    <a class="fb" id="fbLink" href="https://www.facebook.com/soikat.kirtania" target="_blank" rel="noopener">Facebook</a>
+    <a class="wh" id="waLink" href="https://wa.me/+880 1316-611944" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <p class="note">.</p>
+</div>
+
+<script>
+// If you want to programmatically set values via URL parameters, you can use:
+// ?name=...&fb=...&wa=...&img=...
+function getParam(name){const u=new URLSearchParams(location.search);return u.get(name)}
+const nm = getParam('name'); if(nm) document.getElementById('name').textContent = decodeURIComponent(nm);
+const fb = getParam('fb'); if(fb) document.getElementById('fbLink').href = fb;
+const wa = getParam('wa'); if(wa) document.getElementById('waLink').href = wa;
+const img = getParam('img'); if(img) document.getElementById('profilePic').src = decodeURIComponent(img);
+</script>
+</body>
+</html>
